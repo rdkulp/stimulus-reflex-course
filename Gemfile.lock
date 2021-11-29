@@ -60,6 +60,8 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    acts_as_list (1.0.4)
+      activerecord (>= 4.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     autoprefixer-rails (10.3.3.0)
@@ -71,6 +73,9 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.9.2, < 3)
       sassc-rails (>= 2.0.0)
+    bootstrap_form (5.0.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     builder (3.2.4)
     byebug (11.1.3)
     cable_ready (5.0.0.pre8)
@@ -227,8 +232,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_list
   bootsnap (>= 1.4.4)
   bootstrap (~> 5.0.2)
+  bootstrap_form (~> 5.0)
   byebug
   capybara (>= 3.26)
   faker

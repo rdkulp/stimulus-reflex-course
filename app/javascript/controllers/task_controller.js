@@ -12,4 +12,8 @@ export default class extends Controller {
         this.stimulate('TaskReflex#destroy', event.currentTarget);
       }
   }
+
+  beforeCreate() {
+    console.log("Hello from lifecycle");
+  }
 }

@@ -1,4 +1,5 @@
 class TaskReflex < StimulusReflex::Reflex
+  before_reflex :find_task
 
   # def complete
   #   Task.find(element.dataset.id).update(completed_at: Time.current)
@@ -9,10 +10,20 @@ class TaskReflex < StimulusReflex::Reflex
   # end
 
   def toggle
-    Task.find(element.dataset.id).update(completed_at: element.checked ? Time.current : nil)
+    @task.update(completed_at: element.checked ? Time.current : nil)
   end
 
   def destroy
-    Task.find(element.dataset.id).destroy()
+    @task.destroy()
+  end
+
+  def reorder(position)
+    @task.insert_at(position)
+  end
+
+  private
+
+  def find_task
+    @task = Task.find(element.dataset.id)
   end
 end

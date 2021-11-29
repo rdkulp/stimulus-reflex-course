@@ -53,8 +53,10 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'acts_as_list'
 gem 'bootstrap', '~> 5.0.2'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem "bootstrap_form", "~> 5.0"
 gem "stimulus_reflex", "~> 3.5.0-pre8"
