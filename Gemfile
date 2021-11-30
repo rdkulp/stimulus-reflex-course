@@ -60,3 +60,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "bootstrap_form", "~> 5.0"
 gem "stimulus_reflex", "~> 3.5.0-pre8"
+
+gem "devise", "~> 4.8"

@@ -1,19 +1,27 @@
 <div class="list-group-item d-flex justify-content-between <%= 'completed' if task.complete? %>" data-controller="task" data-id="<%= task.id %>">
-  <div class="custom-control custom-checkbox">
+  <div class="custom-control custom-checkbox me-2">
     <input type="checkbox" class="custom-control-input" id="<%= dom_id(task) %>" data-reflex="change->TaskReflex#toggle" data-id="<%= task.id %>" <%= 'checked' if task.complete? %>>
     <label for="<%= dom_id(task) %>" class="custom-control-label">
       <% if task.complete? %>
         <del>
           <%= task.name %>
         </del>
+        <span class="badge bg-secondary ms-2">Completed by: <%= task.completer_name %></span>
       <% else %>
         <%= task.name %>
+        <span class="badge bg-info" id="task-<%= task.id %>-assignee"><%= task.assignee_name %></span>
       <% end %>
     </label>
+    <div class="collapse" id="collapse-<%= task.id %>">
+      <%= select_tag :assignee, options_from_collection_for_select(User.all, :id, :name, task.assignee_id), class:"custom-select", data: { reflex: "change->Task#assign", id: task.id }%>
+    </div>
   </div>
-  <div class="text-danger">
-    <a href="#" data-action="click->task#destroy" data-id="<%= task.id %>">
+  <ul class="d-flex">
+    <a href="#collapse-<%= task.id %>" data-bs-toggle="collapse" class="text-primary me-2">
+      A
+    </a>
+    <a class="text-danger" href="#" data-action="click->task#destroy" data-id="<%= task.id %>">
       x
     </a>
-  </div>
+  </ul>
 </div>

@@ -25,7 +25,6 @@ export default class extends Controller {
 
   createTaskSuccess() {
     this.formTarget.reset();
-    console.log("was I fired?")
   }
 
   createTaskError(element, name, error) {
